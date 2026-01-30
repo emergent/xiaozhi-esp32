@@ -9,6 +9,7 @@
 
 #include "application.h"
 #include "system_info.h"
+#include "xiaozhi_rust.h"
 
 #define TAG "main"
 
@@ -22,6 +23,11 @@ extern "C" void app_main(void)
         ret = nvs_flash_init();
     }
     ESP_ERROR_CHECK(ret);
+
+    // Initialize Rust runtime
+    xiaozhi_rust_init();
+    const char* rust_version = xiaozhi_rust_version();
+    ESP_LOGI(TAG, "Rust component version: %s", rust_version);
 
     // Initialize and run the application
     auto& app = Application::GetInstance();

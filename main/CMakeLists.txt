@@ -721,6 +721,8 @@ endif()
 idf_component_register(SRCS ${SOURCES}
                     EMBED_FILES ${LANG_SOUNDS} ${COMMON_SOUNDS}
                     INCLUDE_DIRS ${INCLUDE_DIRS}
+                    REQUIRES xiaozhi-rust
+                    PRIV_REQUIRES esp_psram esp_app_format spi_flash app_update efuse
                     WHOLE_ARCHIVE
                     )
 

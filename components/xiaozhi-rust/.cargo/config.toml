@@ -1,0 +1,21 @@
+[build]
+# Default target for Xtensa ESP32-S3 (M5Stack Atom EchoS3R)
+target = "xtensa-esp32s3-espidf"
+
+[target.xtensa-esp32s3-espidf]
+linker = "ldproxy"
+runner = "espflash flash --monitor"
+
+# Additional targets for future support
+[target.riscv32imc-esp-espidf]
+linker = "ldproxy"
+
+[target.riscv32imac-esp-espidf]
+linker = "ldproxy"
+
+[unstable]
+build-std = ["std", "panic_abort"]
+
+[env]
+# ESP-IDF environment
+ESP_IDF_VERSION = { value = "5.4" }

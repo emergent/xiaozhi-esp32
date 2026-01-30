@@ -1,0 +1,5 @@
+[toolchain]
+channel = "esp"
+components = ["rustfmt", "clippy", "rust-src"]
+# Xtensa ESP32-S3 target for M5Stack Atom EchoS3R
+targets = ["xtensa-esp32s3-espidf"]
