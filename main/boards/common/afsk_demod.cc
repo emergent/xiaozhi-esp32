@@ -4,6 +4,7 @@
 #include "esp_log.h"
 #include "display.h"
 #include "ssid_manager.h"
+#include "xiaozhi_rust.h"
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
@@ -247,11 +248,8 @@ namespace audio_wifi_config
     }
 
     uint8_t AudioDataBuffer::CalculateChecksum(const std::string &text) {
-        uint8_t checksum = 0;
-        for (char character : text) {
-            checksum += static_cast<uint8_t>(character);
-        }
-        return checksum;
+        // Migrated to Rust implementation
+        return xiaozhi_rust_calculate_text_checksum(text.c_str(), text.length());
     }
 
     void AudioDataBuffer::ClearBuffers() {
